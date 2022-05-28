@@ -23,13 +23,13 @@
     return undefined;
   }
 
-  // null: 값이 확실하게 없을때
+  // null 💩: 값이 확실하게 없을때
   let person: string | null;
 
-  // unknown: 가능하면 쓰지 않는다
+  // unknown 💩
   // js 라이브러리를 쓸대 쓰는듯
   let notSure: unknown = 0;
-  // any: 가능하면 쓰지 않는다
+  // any 💩
   let anything: any = 0;
 
   // void
@@ -47,4 +47,9 @@
   function infiniteLoop(): never {
     while (true) {}
   }
+
+  // object 💩
+  // 어떤 타입의 데이터든 담을 수 있다(모든 오브젝트)
+  let obj: object;
+  function accceptObject(obj: object) {}
 }

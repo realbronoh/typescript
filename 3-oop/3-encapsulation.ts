@@ -44,9 +44,49 @@
       };
     }
   }
+  class User {
+    // getter: 선언할때는 함수형태이지만
+    // 접근할때는 property처럼 사용: user.fullName
+    get fullName(): string {
+      return `${this.firstName} ${this.lastName}`;
+    }
+    private _age: number = 0;
+    get age(): number {
+      return this._age;
+    }
+    // user.age = 6 처럼 사용 가능
+    set age(num: number) {
+      if (num < 0) {
+        throw new Error("age must be bigger than 0!");
+      }
+      this._age = num;
+    }
+    // 생성자 내부에 private 설정하면 private member로 선언됨!
+    constructor(private firstName: string, private lastName: string) {}
+  }
+  const user = new User("Steve", "Jobs");
+  console.log(user.fullName);
 
   // constructor를 통해 직접 instance 생성
   // const maker = new CoffeeMaker(70);
   const maker = CoffeeMaker.makeMachine(70);
   maker.fillCoffeeBeans(30);
+
+  class TestClass {
+    private _hello: number = 0;
+    constructor(public a: number, private b: number, protected c: number) {}
+    tell() {
+      console.log(this.a, this.b, this.c);
+    }
+    get hello() {
+      return this._hello;
+    }
+    set hello(num: number) {
+      this._hello = num;
+    }
+  }
+  const aaa = new TestClass(1, 2, 3);
+  console.log(aaa.hello);
+  aaa.hello = 333;
+  console.log(aaa.hello);
 }

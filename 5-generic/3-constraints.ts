@@ -41,4 +41,9 @@
   // const bobAfterPay = pay(bob);
   const ellieAfterPay = goodPay(ellie);
   const bobAfterPay = goodPay(bob);
+
+  // 추가 과제 obj에 적용
+  function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
+    return obj[key];
+  }
 }
